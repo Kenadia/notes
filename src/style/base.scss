@@ -1,0 +1,31 @@
+// Basic, global styles for built-in HTML elements.
+
+@import 'mixins';
+@import 'vars';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $background-white;
+  color: $text-dark-grey;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: $font-size-regular;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: initial;
+  margin: initial;
+}
+
+a:link,
+a:visited {
+  @include link-styling;
+}

@@ -1,0 +1,44 @@
+// Subcomponents used within Angular components.
+
+@import 'mixins';
+@import 'vars';
+
+.ng-tooltip-host {
+  position: relative;
+  cursor: pointer;
+}
+
+.ng-tooltip {
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  max-width: 500px;
+  padding: 8px;
+  border-radius: 3px;
+  background: $tooltip-background;
+  color: $text-white;
+  font-size: $font-size-small;
+  line-height: initial;
+  transform: translateX(100%) translateY(-50%);
+  word-wrap: break-word;
+  pointer-events: none;
+  opacity: 0;
+  transition: 200ms ease opacity;
+
+  &.ng-tooltip-visible {
+    opacity: 1
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-right: 6px solid $tooltip-background;
+    border-bottom: 6px solid transparent;
+    transform: translateX(-100%) translateY(-50%);
+  }
+}

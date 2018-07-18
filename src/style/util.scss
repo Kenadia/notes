@@ -1,0 +1,16 @@
+// Utility classes.
+//
+// Sometimes it's simpler and more maintainable to directly apply low-level,
+// frequently-used styling patterns via a common class. That's where utility
+// classes come in. They fill in the gaps of a purely component-based or purely
+// semantic approach to HTML and CSS.
+//
+// Example use-cases are applying structural and positional traits to elements
+// that do not otherwise need their own class names.
+
+@import 'vars';
+
+// Example:
+// .u-push-top {
+//   margin-top: 10px;
+// }
