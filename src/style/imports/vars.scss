@@ -1,15 +1,26 @@
 // Variables imported across various stylesheets.
 
 // Colors.
-$background-white: #fafafa;
+$background-white: #fff;
+$border-gray: #888;
+$border-light-gray: #bbb;
 $text-dark-grey: #303030;
+$text-gray: #777;
+$text-light-gray: #bbb;
+$text-white: #fff;
 $theme-blue: #03e;
+$tooltip-background: rgba(0, 0, 0, .7);
 
 // Font sizes.
-$font-size-very-large: 20px;
+$font-size-very-large: 32px;
 $font-size-large: 16px;
 $font-size-regular: 14px;
 $font-size-small: 12px;
 $font-size-very-small: 10px;
 
-// May include layout measurements, z-indices, animations...
+// Layout measurements.
+
+// Z-indices.
+$z-index-1: 1;
+
+// Animations.

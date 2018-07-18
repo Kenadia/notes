@@ -1,0 +1,32 @@
+<div
+  class="note"
+  [class.is-dragging]="isDragging"
+  [class.is-editing]="isEditing"
+  [style.left.px]="note.x"
+  [style.top.px]="note.y"
+  (click)="$event.stopPropagation()"
+  (mousedown)="beginDrag($event)"
+  (mouseup)="endDrag(); $event.stopPropagation()">
+
+  <span
+    class="note-content"
+    *ngIf="!isEditing">
+    {{ note.content }}
+  </span>
+
+  <span
+    class="edit-button"
+    (click)="startEditing()">
+    edit
+  </span>
+
+  <input
+    type="text"
+    [(ngModel)]="note.content"
+    [class.is-hidden]="!isEditing"
+    [trigger-focus]="isEditing"
+    (focus)="startEditing()"
+    (blur)="stopEditing()"
+    (keyup.enter)="stopEditing()"
+  />
+</div>

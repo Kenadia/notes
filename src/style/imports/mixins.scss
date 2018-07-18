@@ -20,16 +20,15 @@
 
 @mixin link-styling {
   color: $theme-blue;
-  text-decoration: underline;
 
   &:hover,
   &:focus,
   &:active {
-    color: darken($theme-blue, 15%);
+    text-decoration: underline;
   }
 
   &:disabled {
-    color: $text-grey;
+    color: $text-gray;
     cursor: initial;
   }
 }

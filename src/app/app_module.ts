@@ -12,6 +12,7 @@ import { App } from './app';
 
 import { CoreModule } from './core/core_module';
 import { SharedModule } from './shared/shared_module';
+import { NotesModule } from './notes/notes_module';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
@@ -21,6 +22,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
 
     // Our modules
     CoreModule,
+    NotesModule,
     SharedModule,
   ],
   declarations: [

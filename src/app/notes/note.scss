@@ -1,0 +1,41 @@
+@import 'mixins';
+@import 'vars';
+
+.note {
+  position: absolute;
+}
+
+.note.is-dragging {
+  color: $text-gray;
+
+  .note-content {
+    border-color: $border-light-gray;
+  }
+}
+
+.note-content {
+  padding: 3px 3px 3px 5px;
+  border: 1px solid $border-gray;
+}
+
+.note-content {
+  user-select: none;
+  cursor: move;
+}
+
+.edit-button {
+  @include link-styling;
+  display: none;
+  margin-left: 5px;
+}
+
+.note:hover:not(.is-editing) .edit-button {
+  display: inline;
+  cursor: pointer;
+}
+
+input.is-hidden {
+  opacity: 0;
+  width: 0;
+  pointer-events: none;
+}

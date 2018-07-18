@@ -3,5 +3,17 @@
 @import 'vars';
 
 h1 {
-  color: red;
+  font-size: $font-size-very-large;
+  color: $text-light-gray;
+}
+
+p {
+  color: $text-gray;
+}
+
+.overlay {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: $z-index-1;
 }

@@ -91,13 +91,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "my",
+      "n",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "my",
+      "n",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
