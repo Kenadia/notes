@@ -8,11 +8,11 @@
   (mousedown)="beginDrag($event)"
   (mouseup)="endDrag()">
 
-  <span
+  <div
     class="note-content"
     *ngIf="!isEditing">
     {{ note.content }}
-  </span>
+  </div>
 
   <span
     class="edit-button"
@@ -20,13 +20,13 @@
     edit
   </span>
 
-  <input
-    type="text"
+  <textarea
+    class="note-input"
     [(ngModel)]="note.content"
     [class.is-hidden]="!isEditing"
     [trigger-focus]="isEditing"
     (focus)="startEditing()"
     (blur)="stopEditing()"
-    (keyup.enter)="stopEditing()"
-  />
+    (keyup.control.enter)="stopEditing()">
+  </textarea>
 </div>

@@ -15,13 +15,12 @@
 }
 
 .note-content {
+  display: inline-block;
   padding: 3px 3px 3px 5px;
   border: 1px solid $border-gray;
-}
-
-.note-content {
   user-select: none;
   cursor: move;
+  white-space: pre;
 }
 
 .edit-button {
@@ -35,8 +34,6 @@
   cursor: pointer;
 }
 
-input.is-hidden {
-  opacity: 0;
-  width: 0;
-  pointer-events: none;
+.note-input.is-hidden {
+  display: none;
 }
