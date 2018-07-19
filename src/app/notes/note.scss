@@ -5,7 +5,8 @@
   position: absolute;
 }
 
-.note.is-dragging {
+.note.is-dragging,
+.ghost-note {
   color: $text-gray;
 
   .note-content {

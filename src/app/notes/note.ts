@@ -21,7 +21,7 @@ export class NoteComponent {
 
   beginDrag(event) {
     this.isDragging = true;
-    const promise = this.notesService.beginDrag(event.x, event.y) as any;
+    const promise = this.notesService.beginDrag(this.note, event.x, event.y) as any;
     promise
       .then((diff) => {
         this.note.x += diff.x;

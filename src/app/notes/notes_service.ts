@@ -22,11 +22,16 @@ export interface Point {
 @Injectable()
 export class NotesService {
   private readonly notes: Note[] = [];
+  private draggedNote: Note|null;
   private dragPromise: Promise<Point>;
   private dragPromiseResolve;
   private dragPromiseReject;
   private dragStartX: number;
   private dragStartY: number;
+
+  getDraggedNote() {
+    return this.draggedNote;
+  }
 
   getGlobalNotesList() {
     return this.notes;
@@ -43,10 +48,11 @@ export class NotesService {
     }
   }
 
-  beginDrag(x: number, y: number): Promise<Point> {
+  beginDrag(note: Note, x: number, y: number): Promise<Point> {
     if (this.dragPromise) {
       this.dragPromiseReject();
     }
+    this.draggedNote = note;
     this.dragPromise = new Promise<Point>((resolve, reject) => {
       this.dragPromiseResolve = resolve;
       this.dragPromiseReject = reject;
@@ -57,6 +63,7 @@ export class NotesService {
   }
 
   endDrag(x: number, y: number) {
+    this.draggedNote = null;
     if (this.dragPromise) {
       const diffX = x - this.dragStartX;
       const diffY = y - this.dragStartY;

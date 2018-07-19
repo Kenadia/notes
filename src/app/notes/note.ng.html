@@ -6,7 +6,7 @@
   [style.top.px]="note.y"
   (click)="$event.stopPropagation()"
   (mousedown)="beginDrag($event)"
-  (mouseup)="endDrag(); $event.stopPropagation()">
+  (mouseup)="endDrag()">
 
   <span
     class="note-content"

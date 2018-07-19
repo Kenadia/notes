@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared_module';
 
 import { Canvas } from './canvas';
 import { NoteComponent } from './note';
+import { GhostNoteComponent } from './ghost_note';
 import { NotesService } from './notes_service';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { NotesService } from './notes_service';
   ],
   declarations: [
     Canvas,
+    GhostNoteComponent,
     NoteComponent,
   ],
   providers: [
@@ -28,6 +30,7 @@ import { NotesService } from './notes_service';
   exports: [
     CommonModule,
     Canvas,
+    GhostNoteComponent,
     NoteComponent,
   ],
 })

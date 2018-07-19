@@ -10,9 +10,12 @@ const TEMPLATE = `
 <div
   class="canvas"
   (click)="addNote($event)"
-  (mouseup)="endDrag($event)">
+  (mousedown)="startDrag()"
+  (mouseup)="endDrag($event)"
+  (mousemove)="moveGhost($event)">
 
   <n-note *ngFor="let note of notes" [note]="note"></n-note>
+  <n-ghost-note *ngIf="isDragging" [note]="ghostNote"></n-ghost-note>
 
 </div>
 `;
@@ -24,6 +27,8 @@ const TEMPLATE = `
 })
 export class Canvas {
   @Input() content: string;
+  ghostNote: Note|null = null;
+  isDragging: boolean = false;
   notes: Note[];
 
   constructor(private notesService: NotesService) {
@@ -39,7 +44,25 @@ export class Canvas {
     this.notesService.addNote(newNote);
   }
 
+  startDrag() {
+    const draggedNote = this.notesService.getDraggedNote();
+    // Make a copy to be used by the ghost.
+    if (draggedNote) {
+      this.ghostNote = new Note(draggedNote);
+      this.isDragging = true;
+    }
+  }
+
   endDrag(event) {
+    this.isDragging = false;
+    this.ghostNote = null;
     this.notesService.endDrag(event.x, event.y);
+  }
+
+  moveGhost(event) {
+    if (this.isDragging) {
+      this.ghostNote.x += event.movementX;
+      this.ghostNote.y += event.movementY;
+    }
   }
 }
