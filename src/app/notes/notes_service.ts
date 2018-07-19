@@ -8,6 +8,7 @@ export class Note {
   x: number;
   y: number;
   content: string;
+  isSelected?: boolean = false;
 
   constructor(params: Note) {
     Object.assign(this, params);
@@ -28,6 +29,7 @@ export class NotesService {
   private dragPromiseReject;
   private dragStartX: number;
   private dragStartY: number;
+  private selectedFirstNote: Note|null;
 
   getDraggedNote() {
     return this.draggedNote;
@@ -78,5 +80,15 @@ export class NotesService {
     if (this.dragPromise) {
       this.dragPromiseReject();
     }
+  }
+
+  selectFirstNote(note: Note) {
+    this.selectedFirstNote = note;
+    note.isSelected = true;
+  }
+
+  deselectNotes() {
+    this.selectedFirstNote.isSelected = false;
+    this.selectedFirstNote = null;
   }
 }

@@ -14,6 +14,10 @@
   }
 }
 
+.note.is-selected .note-content {
+  border-color: $selection-yellow;
+}
+
 .note-content {
   display: inline-block;
   padding: 3px 3px 3px 5px;

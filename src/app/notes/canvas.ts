@@ -10,8 +10,8 @@ const TEMPLATE = `
 <div
   class="canvas"
   (click)="addNote($event)"
-  (mousedown)="startDrag()"
-  (mouseup)="endDrag($event)"
+  (mousedown)="mouseDown($event)"
+  (mouseup)="mouseUp($event)"
   (mousemove)="moveGhost($event)">
 
   <n-note *ngFor="let note of notes" [note]="note"></n-note>
@@ -33,6 +33,21 @@ export class Canvas {
 
   constructor(private notesService: NotesService) {
     this.notes = notesService.getGlobalNotesList();
+  }
+
+  mouseDown(event) {
+    if (event.button === 0) {
+      this.startDrag();
+    } else if (event.button === 2) {
+    }
+  }
+
+  mouseUp(event) {
+    if (event.button === 0) {
+      this.endDrag(event);
+    } else if (event.button === 2) {
+      this.endLine();
+    }
   }
 
   addNote(event) {
@@ -64,5 +79,9 @@ export class Canvas {
       this.ghostNote.x += event.movementX;
       this.ghostNote.y += event.movementY;
     }
+  }
+
+  endLine() {
+    this.notesService.deselectNotes();
   }
 }

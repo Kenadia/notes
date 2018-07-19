@@ -19,6 +19,26 @@ export class NoteComponent {
   constructor(private notesService: NotesService) {
   }
 
+  preventContextMenu() {
+    return false;
+  }
+
+  mouseDown(event) {
+    if (event.button === 0) {
+      this.beginDrag(event);
+    } else if (event.button === 2) {
+      this.startLine();
+    }
+  }
+
+  mouseUp(event) {
+    if (event.button === 0) {
+      this.endDrag();
+    } else if (event.button === 2) {
+      this.endLine();
+    }
+  }
+
   beginDrag(event) {
     this.isDragging = true;
     const promise = this.notesService.beginDrag(this.note, event.x, event.y) as any;
@@ -45,5 +65,12 @@ export class NoteComponent {
     if (this.note.content.trim() === '') {
       this.notesService.removeNote(this.note);
     }
+  }
+
+  startLine() {
+    this.notesService.selectFirstNote(this.note);
+  }
+
+  endLine() {
   }
 }

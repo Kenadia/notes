@@ -2,11 +2,12 @@
   class="note"
   [class.is-dragging]="isDragging"
   [class.is-editing]="isEditing"
+  [class.is-selected]="note.isSelected"
   [style.left.px]="note.x"
   [style.top.px]="note.y"
-  (click)="$event.stopPropagation()"
-  (mousedown)="beginDrag($event)"
-  (mouseup)="endDrag()">
+  (contextmenu)="preventContextMenu()"
+  (mousedown)="mouseDown($event)"
+  (mouseup)="mouseUp($event)">
 
   <div
     class="note-content"
