@@ -11,23 +11,27 @@
 
   <div
     class="note-content"
-    *ngIf="!isEditing">
-    {{ note.content }}
-  </div>
+    [style.width]="textareaWidth"
+    [style.height]="textareaHeight"
+    *ngIf="!isEditing">{{ note.content }}</div>
 
   <span
     class="edit-button"
-    (click)="startEditing()">
+    (click)="startEditing(); $event.stopPropagation()">
     edit
   </span>
 
   <textarea
+    #textarea
     class="note-input"
     [(ngModel)]="note.content"
     [class.is-hidden]="!isEditing"
     [trigger-focus]="isEditing"
     (focus)="startEditing()"
     (blur)="stopEditing()"
+    (mousedown)="$event.stopPropagation()"
+    (mouseup)="resizeTextarea(textarea); $event.stopPropagation()"
+    (click)="$event.stopPropagation()"
     (keyup.control.enter)="stopEditing()">
   </textarea>
 </div>

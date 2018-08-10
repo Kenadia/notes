@@ -24,7 +24,7 @@
   border: 1px solid $border-gray;
   user-select: none;
   cursor: move;
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .edit-button {
@@ -36,6 +36,10 @@
 .note:hover:not(.is-editing) .edit-button {
   display: inline;
   cursor: pointer;
+}
+
+.note-input {
+  padding: 3px 4px;
 }
 
 .note-input.is-hidden {

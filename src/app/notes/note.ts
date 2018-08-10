@@ -15,6 +15,8 @@ export class NoteComponent {
   @Input() note: Note;
   isDragging: boolean = false;
   isEditing: boolean = true;
+  textareaWidth: string;
+  textareaHeight: string;
 
   constructor(private notesService: NotesService) {
   }
@@ -72,5 +74,10 @@ export class NoteComponent {
   }
 
   endLine() {
+  }
+
+  resizeTextarea(element: HTMLTextAreaElement) {
+    this.textareaWidth = element.style.width;
+    this.textareaHeight = element.style.height;
   }
 }
