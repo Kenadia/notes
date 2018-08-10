@@ -11,15 +11,17 @@
 
   <div
     class="note-content"
-    [style.width]="textareaWidth"
-    [style.height]="textareaHeight"
+    [style.width.px]="note.width"
+    [style.height.px]="note.height"
     *ngIf="!isEditing">{{ note.content }}</div>
 
   <span
-    class="edit-button"
-    (click)="startEditing(); $event.stopPropagation()">
-    edit
-  </span>
+    class="button"
+    (click)="startEditing(); $event.stopPropagation()">edit</span>
+
+  <span
+    class="button"
+    (click)="delete(); $event.stopPropagation()">delete</span>
 
   <textarea
     #textarea
@@ -28,10 +30,9 @@
     [class.is-hidden]="!isEditing"
     [trigger-focus]="isEditing"
     (focus)="startEditing()"
-    (blur)="stopEditing()"
     (mousedown)="$event.stopPropagation()"
     (mouseup)="resizeTextarea(textarea); $event.stopPropagation()"
     (click)="$event.stopPropagation()"
-    (keyup.control.enter)="stopEditing()">
+    (keyup.control.enter)="stopEditing(textarea)">
   </textarea>
 </div>

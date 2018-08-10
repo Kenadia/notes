@@ -7,6 +7,8 @@ import {Injectable} from '@angular/core';
 export class Note {
   x: number;
   y: number;
+  width?: number;
+  height?: number;
   content: string;
   isSelected?: boolean = false;
 

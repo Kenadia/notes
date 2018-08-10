@@ -15,8 +15,6 @@ export class NoteComponent {
   @Input() note: Note;
   isDragging: boolean = false;
   isEditing: boolean = true;
-  textareaWidth: string;
-  textareaHeight: string;
 
   constructor(private notesService: NotesService) {
   }
@@ -62,11 +60,16 @@ export class NoteComponent {
     this.isEditing = true;
   }
 
-  stopEditing() {
+  stopEditing(textarea) {
+    this.resizeTextarea(textarea);
     this.isEditing = false;
     if (this.note.content.trim() === '') {
       this.notesService.removeNote(this.note);
     }
+  }
+
+  delete() {
+    this.notesService.removeNote(this.note);
   }
 
   startLine() {
@@ -77,7 +80,7 @@ export class NoteComponent {
   }
 
   resizeTextarea(element: HTMLTextAreaElement) {
-    this.textareaWidth = element.style.width;
-    this.textareaHeight = element.style.height;
+    this.note.width = element.offsetWidth;
+    this.note.height = element.offsetHeight;
   }
 }

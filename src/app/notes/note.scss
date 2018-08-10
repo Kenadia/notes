@@ -27,13 +27,13 @@
   white-space: pre-wrap;
 }
 
-.edit-button {
+.button {
   @include link-styling;
   display: none;
   margin-left: 5px;
 }
 
-.note:hover:not(.is-editing) .edit-button {
+.note:hover:not(.is-editing) .button {
   display: inline;
   cursor: pointer;
 }
