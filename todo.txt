@@ -1,0 +1,26 @@
+v0
+==
+
+p1
+- allow drawing arrows or lines
+- save in cache?
+
+p2
+- remove space at end of spans... for example, edit button
+- click outside while editing should stop editing without creating a new note
+
+v1
+==
+
+roadmap
+- chrome extension with storage
+- store and access multiple notes
+- drag the canvas
+- help menu
+- import/export
+- lists?
+
+v2
+==
+
+make these sharable in a blog-style format like effy's idea?

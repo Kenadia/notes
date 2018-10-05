@@ -5,6 +5,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { ContenteditableModelDirective } from './contenteditable_model_directive';
 import { FocusDirective } from './focus_directive';
 import { TooltipDirective } from './tooltip_directive';
 
@@ -14,6 +15,7 @@ import { TooltipDirective } from './tooltip_directive';
   ],
   declarations: [
     // Add components, pipes, and directives here.
+    ContenteditableModelDirective,
     FocusDirective,
     TooltipDirective,
   ],
@@ -24,6 +26,7 @@ import { TooltipDirective } from './tooltip_directive';
     CommonModule,
 
     // Add exported components, pipes, and directives here.
+    ContenteditableModelDirective,
     FocusDirective,
     TooltipDirective,
   ],
